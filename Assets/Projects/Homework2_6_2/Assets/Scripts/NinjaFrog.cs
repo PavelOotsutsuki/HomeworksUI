@@ -1,21 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class NinjaFrog : MonoBehaviour
 {
+    [SerializeField] private UnityEvent _healthChange = new UnityEvent();
+
     private readonly float _maxHealth = 1f;
     private readonly float _minHealth = 0;
     private readonly float _heal = 0.1f;
     private readonly float _damage = 0.1f;
 
     private float _health;
-    private HealthBar _healthBar;
+
+    public float Health => _health;
 
     private void Start()
     {
         _health = _maxHealth;
-        _healthBar = GetComponentInChildren<HealthBar>();
     }
 
     public void TakeHeal()
@@ -23,7 +26,7 @@ public class NinjaFrog : MonoBehaviour
         _health += _heal;
 
         CorrectHealth();
-        _healthBar.DisplayHealthCoroutineStart(_health);
+        _healthChange?.Invoke();
     }
 
     public void TakeDamage()
@@ -31,7 +34,7 @@ public class NinjaFrog : MonoBehaviour
         _health -= _damage;
 
         CorrectHealth();
-        _healthBar.DisplayHealthCoroutineStart(_health);
+        _healthChange?.Invoke();
     }
 
     private void CorrectHealth()

@@ -155,12 +155,12 @@ RectTransform:
   m_Children:
   - {fileID: 767094834}
   - {fileID: 858655257}
-  m_Father: {fileID: 516118970}
-  m_RootOrder: 0
+  m_Father: {fileID: 581721963}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 80.67999}
+  m_AnchoredPosition: {x: 0, y: 265}
   m_SizeDelta: {x: 536.7806, y: 61.354}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &511872358
@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rateOfChange: 0.35
+  _ninjaFrog: {fileID: 516118974}
 --- !u!1 &516118969
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,8 +259,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 511872357}
+  m_Children: []
   m_Father: {fileID: 581721963}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -339,6 +339,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b761d5583832b4c57bb6439a1f0dfd6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healthChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 511872359}
+        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
+        m_MethodName: DisplayHealthCoroutineStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &556757550
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,6 +488,7 @@ RectTransform:
   - {fileID: 516118970}
   - {fileID: 1211759762}
   - {fileID: 1239609950}
+  - {fileID: 511872357}
   m_Father: {fileID: 556757554}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

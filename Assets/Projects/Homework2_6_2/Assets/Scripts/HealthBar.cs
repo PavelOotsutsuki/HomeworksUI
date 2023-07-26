@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] private float _rateOfChange;
+    [SerializeField] private NinjaFrog _ninjaFrog;
 
     private Slider _slider;
     private Coroutine _displayHealthJob;
@@ -17,8 +18,10 @@ public class HealthBar : MonoBehaviour
         _slider = GetComponent<Slider>();
     }
 
-    public void DisplayHealthCoroutineStart(float health)
+    public void DisplayHealthCoroutineStart()
     {
+        float health = _ninjaFrog.Health;
+
         if (_displayHealthJob != null)
         {
             StopCoroutine(_displayHealthJob);
