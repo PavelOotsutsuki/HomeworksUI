@@ -10,12 +10,12 @@ public class NinjaFrog : MonoBehaviour
     private readonly float _damage = 0.1f;
 
     private float _health;
-
-    public float Health => _health;
+    private HealthBar _healthBar;
 
     private void Start()
     {
         _health = _maxHealth;
+        _healthBar = GetComponentInChildren<HealthBar>();
     }
 
     public void TakeHeal()
@@ -23,6 +23,7 @@ public class NinjaFrog : MonoBehaviour
         _health += _heal;
 
         CorrectHealth();
+        _healthBar.DisplayHealthCoroutineStart(_health);
     }
 
     public void TakeDamage()
@@ -30,6 +31,7 @@ public class NinjaFrog : MonoBehaviour
         _health -= _damage;
 
         CorrectHealth();
+        _healthBar.DisplayHealthCoroutineStart(_health);
     }
 
     private void CorrectHealth()
